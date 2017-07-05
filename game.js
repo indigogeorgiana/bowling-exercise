@@ -1,14 +1,14 @@
 // Score 119:
 //
-var frames = [
- [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
-]
+//var frames = [
+// [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
+//]
 //
 // Score 141:
 //
-// var frames = [
-//   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
-// ]
+ var frames = [
+   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+ ]
 
 function isSpare(frame) {
   return frame[0] != 10 && frame[0] + frame[1] == 10
@@ -35,15 +35,23 @@ function scoreFrame(frame, nextFrame, thirdFrame) {
   return score
 }
 
+function scoreLastFrame(lastFrame) {
+    var score = lastFrame[0] + lastFrame[1]
+    if (isSpare(lastFrame) || lastFrame[0] == 10){
+      score += lastFrame[2]
+    }
+    return score
+}
+
 //score all othe frames simply
 function scoreFrames(frames) {
   return frames.reduce(function(acc, frame, i) {
-    return acc + scoreFrame(frame, frames[i+1], frames[i+2])
+    if (i == 9) {
+      return acc + scoreLastFrame(frame)
+    } else {
+      return acc + scoreFrame(frame, frames[i+1], frames[i+2])
+    }
   }, 0)
 }
 
 console.log(scoreFrames(frames))
-
-//score strikes
-//score double strikes
-//score last frame
