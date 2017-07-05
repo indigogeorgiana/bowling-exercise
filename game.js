@@ -18,13 +18,19 @@ function isSingleStrike(frame, nextFrame) {
   return frame[0] == 10 && nextFrame[0] != 10
 }
 
+function isDoubleStrike(frame, nextFrame) {
+  return frame[0] == 10 && nextFrame[0] == 10
+}
+
 //score a single frame
-function scoreFrame(frame, nextFrame) {
+function scoreFrame(frame, nextFrame, thirdFrame) {
   var score = frame[0] + frame[1]
   if (isSpare(frame)) {
     score += nextFrame[0]
   } else if (isSingleStrike(frame, nextFrame)) {
     score += nextFrame[0] + nextFrame[1]
+  } else if (isDoubleStrike(frame, nextFrame)) {
+    score += 10 + thirdFrame[0]
   }
   return score
 }
@@ -32,7 +38,7 @@ function scoreFrame(frame, nextFrame) {
 //score all othe frames simply
 function scoreFrames(frames) {
   return frames.reduce(function(acc, frame, i) {
-    return acc + scoreFrame(frame, frames[i+1])
+    return acc + scoreFrame(frame, frames[i+1], frames[i+2])
   }, 0)
 }
 
