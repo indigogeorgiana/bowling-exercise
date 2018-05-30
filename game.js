@@ -1,5 +1,7 @@
 // Score 119:
-
+module.export = {
+  scoreOpenFrame,
+}
 var frames = [
   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
 ]
@@ -8,9 +10,9 @@ scoreGame(frames)
 function scoreGame (frames) {
   for (i = 0; i < frames.length; i++) {
     if (frames[i][0] == 10) {
-      scoreStrikeFrame()
+      scoreStrikeFrame(frames[i])
     } else if (frames[i][0] + frames[i][1] == 10) {
-      scoreSpareFrame()
+      scoreSpareFrame(frames[i])
     } else {
       scoreOpenFrame(frames[i])
     }
@@ -22,19 +24,9 @@ function scoreOpenFrame (frame) {
 }
 
 function scoreSpareFrame (frame) {
-  return (10 + frame[0]
+  return 10 + (frame + 1)[0]
 }
 
-function socreStrikeFrame (frame) {
-  return 10 + frames++
+function scoreStrikeFrame (frame) {
+  return 10 + (frame + 1)
 }
-
-function gutterball () {
-
-}
-
-// Score 141:
-//
-// var frames = [
-//   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
-// ]
