@@ -32,3 +32,8 @@ function startGame (frames) {
 }
 
 
+/*function total () {
+  // reset
+  if strike === true (total)// strike true
+  if spare === true (total)//spare true 
+}
