@@ -9,10 +9,15 @@ let spare = 0
 let strike = 0
 let total = 0
 
+<<<<<<< HEAD
 // , [10, 6, 10]
 
 const frames = [
   [3, 6], [10, 0], [0, 9], [0, 0], [1, 6], [7, 2], [3, 3], [8, 1], [0, 6]
+=======
+const frames = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+>>>>>>> f5c92cbeb9512b96dfb7f205798ab92f41383f05
 ]
 
 function round1 () {
@@ -37,6 +42,7 @@ function round1 () {
       total += (first + second)
     }
   }
+  return total
 }
 
 function finalRound () {

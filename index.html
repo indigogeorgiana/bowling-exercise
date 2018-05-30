@@ -1,0 +1,115 @@
+<html>
+ <head>
+  bowling
+ </head>
+<body>
+    <script type="text/javascript">
+      // Score 119:
+    
+    var frames = [
+       [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
+     ]
+    //
+    // Score 141:
+    //
+    
+    //var frames2 = [
+    //  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+    //]
+    
+    bowling (frames)
+
+    function bowling (frames) {
+      let first = 0
+      let second = 0
+      let spare = 0
+      let strike = 0
+      let total = 0
+      let frameResult = ''
+      let sumFrame = [] // sum of each frame's point
+      let tmpArr = []
+      let prevResult = 0
+
+      for (let i = 0; i < frames.length; i++) {
+        frameTot = frames[i][0] + frames[i][1]
+        sumFrame.push(frameTot)
+        console.log(sumFrame)
+        
+        frameResult = tmpCal(frames[i])
+        
+        switch (frameResult) {
+          case strike:
+            if (tmpArr[i-1] === 'spare'){
+
+            }else if (tmpArr[i-1] === 'strike'){
+
+            }
+            ///////////////////////
+            tmpArr[i].push('strike')  
+            break
+
+          case spare://we can calculate later frame
+            if (tmpArr[i-1] === 'spare'){
+              tmpArr[i-1].push(frames[i][0]+10+tmpArr[i-2]) 
+              tmpArr[i].push('spare')
+            }else if (tmpArr[i-1] === 'strike'){
+              tmpArr[i-1].push(20) 
+              tmpArr[i].push('strike')
+            }else{
+              tmpArr[i-1].push += frameTot 
+            }
+          
+            ////////////////////////
+            tmpArr[i].push('spare')            
+            break
+
+          case open://just add
+            if ( i>0 && tmpArr[i-1] === 'spare' ){
+              tmpArr[i-1].push(frames[i][0]+10+tmpArr[i-2]) 
+            } else if ( i> 0 && tmpArr[i-1] === 'strike'){
+
+            }else{
+                        
+            }
+
+            /////////////////////////
+            tmpArr[i].push('open')  
+            break
+           
+         }
+
+
+        /*///////////////////////////////////////////
+        for (let j = 0; j < 2; j++) {
+          first = frames[i][0]
+          second = frames[i][1]
+          if (first + second === 10) {
+            total = (10 + frames[1][0])            
+          }         
+        }*/
+
+
+
+      }  
+    }
+    
+    function tmpCal (arr) {
+      let first = arr[0]
+      let second = arr[1]
+      let sum = first + second
+
+      //alert(sum)
+    
+      if (first === 10 || second === 10) {
+        return 'strike'
+      }
+      if (sum === 10) {
+        return 'spare'
+      } else if (sum < 10) {
+        return 'open'
+      }
+    }
+    
+          </script>
+  </body>
+</html>
