@@ -1,17 +1,17 @@
-const openFrame = require('openFrames.js')
-const spareFrame = require('spareFrames.js')
-const strikeFrame = require('strikeFrames.js')
+const openFrame = require('./openFrames.js')
+const spareFrame = require('./spareFrames.js')
+const strikeFrame = require('./strikeFrames.js')
 // Score 119:
 //
-// var frames = [
-//   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
-// ]
+var frames1 = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
+]
 //
 // Score 141:
 //
-// var frames = [
-//   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
-// ]
+var frames2 = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+]
 
 // create runningScore variable
 // loop through frames
@@ -31,4 +31,8 @@ function getScore (arr) {
       runningScore += spareFrame.addSpareFrames([arr[i], arr[i + 1]])
     }
   }
+  return runningScore
 }
+
+getScore(frames1)
+getScore(frames2)
