@@ -31,5 +31,6 @@ function scoreSpareFrame (frame) {
 }
 
 function scoreStrikeFrame (frame) {
-  return 10 + (frame + 1)
+  return 10 + (frame[i+1])
+  //add a number from another array to another number
 }
