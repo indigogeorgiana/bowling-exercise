@@ -5,27 +5,30 @@ module.exports = {
   isSpare,
   isStrike,
   spare,
-  strike
+  strike,
+  calculateAll,
+  bowlingFrames
 }
 
 // Score 119:
 //
-// var frames = [
+// let bowlingFrames = [
 //   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
 // ]
 //
 // Score 141:
 //
-// var frames = [
-//   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
-// ]
+var bowlingFrames = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+]
 
 let finalScore = 0
 let frameScores = []
 
-function overall () {
+// function overall () {
 
-}
+// }
+
 // adds each score to make total score for each frame (2/3 x balls Open and Tenth Frame)
 function open (frame) {
   let tempScore = 0
@@ -66,12 +69,12 @@ function isStrike (frame) {
 
 // function for calculating spare frame scores
 function spare (frame, frame2) {
-    return open(frame) + frame2[0]
+  return open(frame) + frame2[0]
 }
 
 // function for calculating strike frame scores
 function strike (frame, frame2, frame3) {
-  if (frame2[0]===10) {
+  if (frame2[0] === 10) {
     return open(frame) + frame2[0] + frame3[0]
   } else {
     return open(frame) + frame2[0] + frame2[1]
@@ -79,3 +82,9 @@ function strike (frame, frame2, frame3) {
 }
 
 // loop to calculate each frame individually
+function calculateAll (games) {
+  for (let x = 0; x < 10; x++) {
+    frameScores.push(open(games[x]))
+  }
+  return frameScores
+}
