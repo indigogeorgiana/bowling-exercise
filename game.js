@@ -22,11 +22,11 @@ function scoreOpenFrame (frame) {
 }
 
 function scoreSpareFrame (frame) {
-return 10 + 
+  return (10 + frame[0]
 }
 
 function socreStrikeFrame (frame) {
-
+  return 10 + frames++
 }
 
 function gutterball () {
