@@ -9,9 +9,9 @@ scoreGame(frames)
 
 function scoreGame (frames) {
   for (i = 0; i < frames.length; i++) {
-    if (frames[i][0] == 10) {
+    if (frames[i][0] === 10) {
       scoreStrikeFrame(frames[i])
-    } else if (frames[i][0] + frames[i][1] == 10) {
+    } else if (frames[i][0] + frames[i][1] === 10) {
       scoreSpareFrame(frames[i])
     } else {
       scoreOpenFrame(frames[i])
