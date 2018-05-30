@@ -1,4 +1,4 @@
-const openFrames = require('../openFrame.js')
+const openFrames = require('../openFrames.js')
 
 test('addOpenFrames adds two scores that equal less than 10', () => {
   // arrange
