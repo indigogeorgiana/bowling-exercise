@@ -31,8 +31,7 @@ function startGame (frames) {
   console.log(total)
 }
 
-
-/*function total () {
+function total () {
   // reset
   if strike === true (total)// strike true
   if spare === true (total)//spare true 
