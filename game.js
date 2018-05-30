@@ -80,7 +80,7 @@ function calculateAll (frames) {
   const bowlingFrames = frames
   const secondLast = bowlingFrames.length - 2
   const last = bowlingFrames.length - 1
-  for (let x = 0; x < 10; x++) {
+  for (let x = 0; x < bowlingFrames.length; x++) {
     if (bowlingFrames[x] === bowlingFrames[last]) {
       frameScores.push(open(bowlingFrames[last]))
     } else if (isStrike(bowlingFrames[x] === bowlingFrames[secondLast])) {
