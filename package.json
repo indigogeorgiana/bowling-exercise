@@ -1,0 +1,24 @@
+{
+  "name": "bowling-kata",
+  "version": "1.0.0",
+  "description": "In this challenge you're going to score a bowling game. Sound simple? Just wait...",
+  "main": "game.js",
+  "dependencies": {
+    "jest": "^23.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamaku-2018/bowling-kata.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mamaku-2018/bowling-kata/issues"
+  },
+  "homepage": "https://github.com/mamaku-2018/bowling-kata#readme"
+}
