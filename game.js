@@ -10,15 +10,15 @@ module.exports = {
 
 // Score 119:
 //
-var bowlingFrames = [
-    [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
-]
+// var bowlingFrames = [
+//     [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [4, 4]
+// ]
 //
 // Score 141:
 //
-// var bowlingFrames = [
-//   [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
-// ]
+var framesTemp = [
+  [1, 2], [6, 4], [5, 4], [10, 0], [7, 2], [10, 0], [10, 0], [5, 2], [7, 0], [10, 10, 10]
+]
 
 let finalScore = 0
 let frameScores = []
@@ -30,10 +30,6 @@ let frameScores = []
 // adds each score to make total score for each frame (2/3 x balls Open and Tenth Frame)
 function open (frame) {
   let tempScore = 0
-  // for (let i = 0; i < frame.length; i++) {
-  //   tempScore += frame[i]
-  // }
-
   for (let score of frame) {
     tempScore += score
   }
@@ -80,7 +76,8 @@ function strike (frame, frame2, frame3) {
 }
 
 // // loop to calculate each frame individually
-function calculateAll () {
+function calculateAll (frames) {
+  const bowlingFrames = frames
   const secondLast = bowlingFrames.length - 2
   const last = bowlingFrames.length - 1
   for (let x = 0; x < 10; x++) {
